@@ -1,0 +1,12 @@
+development:
+    AWS_ACCESS_KEY: xxx
+    AWS_SECRET_TOKEN: xxx
+    AWS_BUCKET: xx
+production:
+    AWS_ACCESS_KEY: ENV['AWS_ACCESS_KEY']
+    AWS_SECRET_TOKEN: ENV['AWS_SECRET_TOKEN']
+    AWS_BUCKET: ENV['AWS_BUCKET']
+test:
+    AWS_ACCESS_KEY: xxx
+    AWS_SECRET_TOKEN: xxx
+    AWS_BUCKET: ''

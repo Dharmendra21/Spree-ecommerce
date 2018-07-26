@@ -1,0 +1,18 @@
+module Spree
+  BaseHelper.module_eval do
+    Image.attachment_definitions[:attachment][:styles].each do |style, v|
+      define_method "#{style}_image" do |product, *options|
+        options = options.first || {}
+        if product.images.empty?
+          image_tag "noimage/#{style}.png", options
+        else
+          image = product.images.first
+          options.reverse_merge! :alt => image.alt.blank? ? product.name : image.alt
+          # I dont use digest timestamps ftm
+          image_tag image.attachment.url(style,false), options
+        end
+      end
+    end
+  end
+end
+
